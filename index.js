@@ -1,6 +1,8 @@
-const arr = [1,5,3,2,6,4,3];
+// Core Module
+// console, fs, Buffer, HTTP
+const fs = require('fs');
 
-let res = arr.filter((item) => {
-    return item === 3;
-})
-console.warn(res);
+// fs = file system 
+fs.writeFileSync('demo.txt', "Hello I am Tohidujjaman Hoque"); //to Create a File
+console.log(__dirname); //to print the directory 
+console.log(__filename); //to print file name 
