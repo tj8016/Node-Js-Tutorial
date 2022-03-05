@@ -1,8 +1,9 @@
-// Make a Basic Server
-// core module http---->
-const http = require('http'); // this is for handle server request and responce in node js
-http.createServer( (req, res) => {
-    console.log('starting....')
-    res.write('<h1> Hi this is TJ </h1>');
+// Make a Simple API
+const http = require('http');
+const data = require('./data');
+
+http.createServer((req, res) => {
+    res.writeHead(200,{'Content-type' : 'application\json'});
+    res.write(JSON.stringify(data));
     res.end();
-}).listen(3000) // for creating server . its take function as a parameter
+}).listen(3000);
