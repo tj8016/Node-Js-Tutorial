@@ -1,8 +1,15 @@
-// Make a Basic Server
-// core module http---->
-const http = require('http'); // this is for handle server request and responce in node js
-http.createServer( (req, res) => {
-    console.log('starting....')
-    res.write('<h1> Hi this is TJ </h1>');
-    res.end();
-}).listen(3000) // for creating server . its take function as a parameter
+// Command line input
+const fs = require('fs');
+
+const input = process.argv;
+// fs.writeFileSync(input[2], input[3]);
+
+if(input[2] == 'add') {
+    fs.writeFileSync(input[3], input[4]);
+}
+else if(input[2] == 'remove'){
+    fs.unlinkSync(input[3]);
+}
+else {
+    console.log('Invalid input');
+}
