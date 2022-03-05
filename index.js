@@ -1,8 +1,8 @@
-// Core Module
-// console, fs, Buffer, HTTP
-const fs = require('fs');
-
-// fs = file system 
-fs.writeFileSync('demo.txt', "Hello I am Tohidujjaman Hoque"); //to Create a File
-console.log(__dirname); //to print the directory 
-console.log(__filename); //to print file name 
+// Make a Basic Server
+// core module http---->
+const http = require('http'); // this is for handle server request and responce in node js
+http.createServer( (req, res) => {
+    console.log('starting....')
+    res.write('<h1> Hi this is TJ </h1>');
+    res.end();
+}).listen(3000) // for creating server . its take function as a parameter
