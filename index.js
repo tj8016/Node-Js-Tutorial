@@ -1,8 +1,16 @@
-// Make a Basic Server
-// core module http---->
-const http = require('http'); // this is for handle server request and responce in node js
-http.createServer( (req, res) => {
-    console.log('starting....')
-    res.write('<h1> Hi this is TJ </h1>');
-    res.end();
-}).listen(3000) // for creating server . its take function as a parameter
+// Show file list
+const fs = require('fs');
+const path = require('path');
+const dirPath = path.join(__dirname, 'files');
+for(i = 0 ; i<5; i++) {
+    fs.writeFileSync(dirPath + "/hello"+i+".txt", 'simple text');
+}
+
+fs.readdir(dirPath,(err, files) => {
+    if(err) {
+        throw err;
+    }
+    else {
+        console.warn(files);
+    }
+})
