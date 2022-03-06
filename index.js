@@ -1,8 +1,6 @@
-// Make a Basic Server
-// core module http---->
-const http = require('http'); // this is for handle server request and responce in node js
-http.createServer( (req, res) => {
-    console.log('starting....')
-    res.write('<h1> Hi this is TJ </h1>');
-    res.end();
-}).listen(3000) // for creating server . its take function as a parameter
+const arr = [1,5,3,2,6,4,3];
+
+let res = arr.filter((item) => {
+    return item === 3;
+})
+console.warn(res);
