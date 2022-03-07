@@ -1,6 +1,26 @@
-const arr = [1,5,3,2,6,4,3];
+const express = require('express');
+const path = require('path');
 
-let res = arr.filter((item) => {
-    return item === 3;
+const app = express();
+
+app.get('' , (req, res) => {
+    // console.log("data send to browser =>>", req.query.name)
+    // res.send(`hello ${req.query.name} this is Home page`);
+    res.send(`
+    <h1> Hello this is Home page </h2>
+    <a href= "/about" > About </a>
+    `);
 })
-console.warn(res);
+
+app.get('/about' , (req, res) => {
+    res.send(`
+    <h1> Hello this is About page </h2>
+    <a href= "/" > Home </a>
+    `);
+})
+
+app.get('/help' , (req, res) => {
+    res.send('hello this is Help page');
+})
+
+app.listen(3000);
