@@ -1,6 +1,18 @@
-const arr = [1,5,3,2,6,4,3];
+const express = require('express');
+const path = require('path');
 
-let res = arr.filter((item) => {
-    return item === 3;
+const app = express();
+const publicPath = path.join(__dirname, 'public');
+
+// app.use(express.static(publicPath));
+app.get('', (_, res) => {
+    res.sendFile(`${publicPath}/home.html`)
 })
-console.warn(res);
+app.get('/about', (_, res) => {
+    res.sendFile(`${publicPath}/about.html`)
+})
+app.get('*', (_, res) => {
+    res.sendFile(`${publicPath}/404.html`)
+})
+
+app.listen(3000);
