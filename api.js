@@ -31,7 +31,8 @@ app.put('/', async(req, resp) => {
 })
 
 // Delete Api
-app.delete('/:id', async(req, resp) => {
+app.delete("/:id", async(req, resp) => {
+    console.log(req.params.id);
     let data = await dbConnection();
     let result = await data.deleteOne({_id: new mongodb.ObjectId(req.params.id)});
     res.send(result);
